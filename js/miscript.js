@@ -20,18 +20,22 @@ function procesaCompra(producto, cantidadProducto) {
     }
 }
 
+function muestraCarro (){
+    alert ("Actualmente su carro de compra contiene: " + cantidad1 + " kg de Asado, " + cantidad2 + " kg de Bife y " + cantidad3 + " kg de Cuadril")
+}
+
 function ingresaCantidad() {
-    let reintentar = "s"
+    let reintentar = true
     do {
         const cantidadProducto = parseFloat(prompt("Está agregando al Carro " + producto + "; Por favor indique la cantidad en kilos que desea comprar"))
         if (isNaN(cantidadProducto)) {
             alert("Por favor ingrese un número");
         } else {
             procesaCompra(producto, cantidadProducto);
-            reintentar = "n"
+            reintentar = false
         }
         
-    }while (reintentar === "s") 
+    }while (reintentar) 
 }
 
 do {
@@ -53,12 +57,10 @@ do {
             continuar = "N"
             break;
         default:
-            alert("El producto seleccionado no existe, por favor ingrese uno valido. Actualmente su carro de compra contiene: " + cantidad1 + " kg de Asado, " + cantidad2 + " kg de Bife y " + cantidad3 + " kg de Cuadril");
+            alert("La opción seleccionada no es válida, por favor intente nuevamente.");
             break;
     }
-} while (continuar !== "N") {
-    continuar = prompt("Actualmente su carro de compra contiene: " + cantidad1 + " kg de Asado, " + cantidad2 + " kg de Bife y " + cantidad3 + " kg de Cuadril; Desea continuar (S) / (N)").toUpperCase();
-}
+} while (continuar !== "N") 
 
 
 
